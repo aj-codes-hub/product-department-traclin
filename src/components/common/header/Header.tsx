@@ -15,7 +15,7 @@ const handleShowMenu = () => {
 
 
   return (
-     <div className='max-w-[1170px] w-full h-[74px] mx-auto bg-white overflow-hidden mt-[20px] xl:px-0 px-[20px]'>
+     <div className='max-w-[1170px] w-full h-[74px] mx-auto sticky top-0 z-[99] bg-white overflow-hidden mt-[20px] xl:px-0 px-[20px]'>
       
       <div className='flex w-full h-full items-center'>
 
