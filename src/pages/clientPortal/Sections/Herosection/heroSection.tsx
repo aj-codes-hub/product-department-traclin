@@ -6,7 +6,7 @@ import Button from '../../../../components/common/Button'
 
 const HeroSection:React.FC = () => {
   return (
-   <div className='inner flex xl::gap-[29px] mt-[89px] lg:text-left text-center xl:mx-0 mx-auto'>
+   <div className='inner flex xl::gap-[29px] sm:mt-[89px] mt-[50px] lg:text-left text-center xl:mx-0 mx-auto'>
 
       <div className='xl:w-[565px] lg:w-[50%] w-[90%] lg:mx-0 mx-auto mt-[25px]'>
 
