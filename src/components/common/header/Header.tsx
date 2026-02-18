@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Button from '../Button'
 import { LuMenu } from "react-icons/lu";
 import MoboleMenu from './MoboleMenu';
+import { RxCross1 } from "react-icons/rx";
 
 
 
@@ -47,10 +48,19 @@ const handleShowMenu = () => {
 
       </div>
 
-      <LuMenu  onClick={handleShowMenu}
+      {isShow
+  
+        ?  <RxCross1  onClick={handleShowMenu}
                className='lg:hidden block ml-auto cursor-pointer
                          sm:h-[50px] sm:w-[50px]
                             h-[40px]    w-[40px]'/>
+       
+        :    <LuMenu  onClick={handleShowMenu}
+               className='lg:hidden block ml-auto cursor-pointer
+                         sm:h-[50px] sm:w-[50px]
+                            h-[40px]    w-[40px]'/>      
+      }     
+
 
       </div>
 
