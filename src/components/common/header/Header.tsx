@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../Button'
 import { LuMenu } from "react-icons/lu";
 import MoboleMenu from './MoboleMenu';
@@ -15,12 +15,25 @@ const handleShowMenu = () => {
 }
 
 
+const [scrollY, setScrollY] = useState(false);
 
+useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY >= 20) {
+      setScrollY(true);
+    } else {
+      setScrollY(false);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
 
 
   return (
-    <div className='w-full bg-white mt-[20px] sticky top-0 z-[99]'>
+    <div className={`w-full bg-white mt-[20px] sticky top-0 z-[99] ${scrollY ? "shadow-[0_64px_84px_#94929326]" : ""}`}>
 
      <div className='max-w-[1170px] w-full h-[74px] mx-auto overflow-hidden xl:px-0 px-[20px]'>
       
