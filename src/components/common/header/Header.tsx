@@ -15,8 +15,14 @@ const handleShowMenu = () => {
 }
 
 
+
+
+
+
   return (
-     <div className='max-w-[1170px] w-full h-[74px] mx-auto sticky top-0 z-[99] bg-white overflow-hidden mt-[20px] xl:px-0 px-[20px]'>
+    <div className='w-full bg-white mt-[20px] sticky top-0 z-[99]'>
+
+     <div className='max-w-[1170px] w-full h-[74px] mx-auto overflow-hidden xl:px-0 px-[20px]'>
       
       <div className='flex w-full h-full items-center'>
 
@@ -51,7 +57,7 @@ const handleShowMenu = () => {
       {isShow
   
         ?  <RxCross1  onClick={handleShowMenu}
-               className='lg:hidden block ml-auto cursor-pointer
+               className='lg:hidden block ml-auto cursor-pointer y   bvcxz2
                          sm:h-[50px] sm:w-[50px]
                             h-[40px]    w-[40px]'/>
        
@@ -65,6 +71,8 @@ const handleShowMenu = () => {
       </div>
 
       <MoboleMenu classNmae={`${isShow ? "w-[80%] pt-[20px] px-[20px]" : "w-0" }`}/>
+
+     </div>
 
     </div>
   )
