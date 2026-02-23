@@ -3,10 +3,23 @@ import Button from '../Button'
 import { LuMenu } from "react-icons/lu";
 import MoboleMenu from './MoboleMenu';
 import { RxCross1 } from "react-icons/rx";
+import { useNavigate } from 'react-router-dom';
+
+
 
 
 
 const Header:React.FC = () => {
+
+const navigate = useNavigate();
+
+const NavigateToLoginPage = () => {
+    navigate('/login')
+}
+
+const NavigateToSignUpPage = () => {
+    navigate('/sign-up')
+}
 
 const [isShow, setIsShow] = useState(false)
 
@@ -53,15 +66,17 @@ useEffect(() => {
 
       <div className='lg:flex gap-[10px] ml-auto hidden'>
 
-        <Button type='submit'
+        <Button onClick={NavigateToLoginPage}
+                type='submit'
                 variant='secondary'
                 size='lg'>
             log in
         </Button>
 
-         <Button type='submit'
-                variant='primary'
-                size='lg'>
+         <Button onClick={NavigateToSignUpPage}
+                 type='submit'
+                 variant='primary'
+                 size='lg'>
             Sign Up
         </Button>
 

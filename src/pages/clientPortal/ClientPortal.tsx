@@ -12,6 +12,7 @@ const ClientPortal:React.FC = () => {
         <HeroSection />
         <AboutUs />
         <HowToUse />
+        
 
     </div>
   )
