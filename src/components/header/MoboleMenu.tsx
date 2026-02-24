@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../Button'
+import { useNavigate } from 'react-router-dom';
 
 
 interface MoboleMenuProps {
@@ -8,6 +9,16 @@ interface MoboleMenuProps {
 
 
 const MoboleMenu:React.FC<MoboleMenuProps> = ({classNmae}) => {
+
+const navigate = useNavigate();
+
+  const NavigateToLoginPage = () => {
+    navigate('/login')
+}
+
+const NavigateToSignUpPage = () => {
+    navigate('/sign-up')
+}
 
   return (
     <div className={`bg-white transform duration-300 shadow-[44px_0_74px_#94929340]  z-[999] h-full fixed
@@ -27,14 +38,16 @@ const MoboleMenu:React.FC<MoboleMenuProps> = ({classNmae}) => {
 
        <div className='flex flex-col gap-[10px] w-full'>
 
-        <Button className='w-full border rounded-[10px]'
+        <Button onClick={NavigateToLoginPage}
+                className='w-full border rounded-[10px]'
                 type='submit'
                 variant='secondary'
                 size='lg'>
             log in
         </Button>
 
-         <Button className='w-full'
+         <Button onClick={NavigateToSignUpPage}
+                 className='w-full'
                  type='submit'
                  variant='primary'
                  size='lg'>
