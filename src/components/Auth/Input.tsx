@@ -41,7 +41,7 @@ const Input: React.FC<InputProps> = ({
     return (
         <div className={`relative ${className}`}>
             {label && (  
-                <label className='block text-[16px] font-medium text-gray-700 mb-1'>
+                <label className='block sm:text-[16px] text-[14px] font-medium text-gray-700 mb-1'>
                     {label}
                 </label>
             )}
@@ -54,8 +54,9 @@ const Input: React.FC<InputProps> = ({
                 placeholder={placeholder}
                 required={required}
                 className={`
-                    bg-[#1c74bc] bg-opacity-[5%] w-full h-[58px] 
-                    rounded-[10px] px-[20px] text-[16px] 
+                    bg-[#1c74bc] bg-opacity-[5%] w-full
+                    rounded-[10px] sm:px-[20px] px-[18px] sm:text-[16px] text-[14px] 
+                    sm:h-[58px] h-[48px] 
                     focus:outline-none focus:ring-2 focus:ring-[#c6273A]/20
                     ${error ? 'border border-red-500' : 'border border-transparent'}
                 `}
@@ -68,7 +69,7 @@ const Input: React.FC<InputProps> = ({
             {eyeButton && (
                 <div 
                     onClick={handleShowPass}
-                    className='text-[#23283253] absolute right-[24px] bottom-[18px] text-[24px] cursor-pointer'
+                    className='text-[#23283253] absolute right-[24px] sm:bottom-[18px] bottom-[14px] sm:text-[24px] text-[20px] cursor-pointer'
                 >
                     {isShow ? <HiOutlineEye /> : <HiOutlineEyeOff />}
                 </div>

@@ -172,17 +172,17 @@ const Login: React.FC = () => {
 
       <div className='flex items-center 2xl:justify-start justify-center lg:w-[50vw] w-full h-screen relative'>
         <button onClick={navigateToSignUpPage}
-                className='absolute top-[60px] sm:right-[50px] right-[20px] text-[18px] font-[500]'>
+                className='absolute top-[40px] sm:right-[50px] right-[20px] text-[18px] font-[500]'>
           Don't have an account? 
           <span className='text-[#c6273A]'> Register</span>
         </button>
 
         <div className='xl:w-[544px] sm:w-[450px] w-[90%] 2xl:ml-[120px]'>
-          <h1 className='text-[34px] font-bold text-center md:text-left'>
+          <h1 className='sm:text-[34px] text-[30px] font-bold text-center md:text-left'>
             Sign in to Traclin
           </h1>
 
-          <p className='text-[20px] text-[#232832] font-normal mt-[24px] text-center md:text-left'>
+          <p className='sm:text-[20px] text-[16px] text-[#232832] font-normal sm:mt-[24px] mt-[8px] text-center md:text-left'>
             Please enter your email or log in with social accounts
           </p>
           
@@ -215,18 +215,18 @@ const Login: React.FC = () => {
                 error={errors.password}
                 eyeButton={true}
                 required={true}
-                className='mt-[20px]'
+                className='sm:mt-[20px] mt-[16px]'
               />
 
               <div className='flex items-center mt-[20px] mb-[30px]'>
                 <input type="checkbox"
-                       className='h-[16px] w-[16px]' 
+                       className='sm:h-[16px] sm:w-[16px] h-[14px] w-[14px]' 
                 />
-                <label className='ml-[10px] text-gray-700'>
+                <label className='ml-[10px] text-gray-700 sm:text-[14px] text-[12px]'> 
                   Remember Me
                 </label>
                 <button type='button'  
-                        className='ml-auto text-[#66737F] hover:text-[#c6273A]'>
+                        className='ml-auto text-[#66737F] hover:text-[#c6273A] sm:text-[14px] text-[12px]'>
                   Forgot Password
                 </button>
               </div>

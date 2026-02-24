@@ -183,12 +183,12 @@ const SignUp: React.FC = () => {
           <span className='text-[#c6273A]'> Login</span>
         </button>
 
-        <div className='xl:w-[544px] sm:w-[450px] w-[90%] 2xl:ml-[120px]'>
-          <h1 className='text-[34px] font-bold text-center md:text-left'>
+        <div className='xl:w-[544px] sm:w-[450px] w-[85%] 2xl:ml-[120px]'>
+          <h1 className='sm:text-[34px] text-[28px] font-bold text-center md:text-left'>
             Sign Up to Traclin
           </h1>
 
-          <p className='text-[20px] text-[#232832] font-normal sm:mt-[24px] mt-[10px] text-center md:text-left'>
+          <p className='sm:text-[20px] text-[14px] text-[#232832] font-normal sm:mt-[24px] mt-[8px] text-center md:text-left'>
             Please enter your details or Sign up with social accounts
           </p>
 
@@ -198,7 +198,7 @@ const SignUp: React.FC = () => {
             </div>
           )}
 
-          <div className='mt-[38px]'>
+          <div className='sm:mt-[38px] mt-[30px]'>
             <form onSubmit={handleSubmit}>
               <Input 
                 name='name'
@@ -216,7 +216,7 @@ const SignUp: React.FC = () => {
                 type='text'
                 label='User name'
                 placeholder='Username'
-                className='mt-[20px]'
+                className='sm:mt-[20px] mt-[16px]'
                 value={formData.username}
                 onChange={handleChange}
                 error={errors.username}
@@ -228,7 +228,7 @@ const SignUp: React.FC = () => {
                 type='email'
                 label='Email'
                 placeholder='Your email'
-                className='mt-[20px]'
+                className='sm:mt-[20px] mt-[16px]'
                 value={formData.email}
                 onChange={handleChange}
                 error={errors.email}
@@ -240,7 +240,7 @@ const SignUp: React.FC = () => {
                 type='password'
                 label='Password'
                 placeholder='Password'
-                className='mt-[20px]'
+                className='sm:mt-[20px] mt-[16px]'
                 eyeButton={true}
                 value={formData.password}
                 onChange={handleChange}
@@ -254,9 +254,9 @@ const SignUp: React.FC = () => {
                   name="agreeTerms"
                   checked={formData.agreeTerms}
                   onChange={handleChange}
-                  className='h-[16px] w-[16px] cursor-pointer' 
+                  className='sm:h-[16px] h-[14px] sm:w-[16px] w-[14px] cursor-pointer' 
                 />
-                <label className='ml-[10px] text-gray-700 text-sm'>
+                <label className='ml-[10px] text-gray-700 sm:text-[14px] text-[10px]'>
                   I agree to freedom 
                   <span className='text-[#1C75BC] cursor-pointer'> terms of service </span> 
                   and
