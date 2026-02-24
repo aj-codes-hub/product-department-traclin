@@ -3,18 +3,24 @@ import Button from '../../../components/Button'
 import { useNavigate } from 'react-router-dom'
 import { Input } from '../../../components/Auth'
 
-
 interface LoginFormData {
   email: string
   password: string
 }
-
 
 interface LoginErrors {
   email?: string
   password?: string
   general?: string  
 }
+
+const MOCK_USERS = [
+  {
+    email: 'user@gmail.com',
+    password: '12345678',
+    name: 'Test User'
+  },
+]
 
 const Login: React.FC = () => {
   const navigate = useNavigate()
@@ -24,11 +30,8 @@ const Login: React.FC = () => {
     password: ''
   })
 
-
   const [errors, setErrors] = useState<LoginErrors>({})
-
   const [isLoading, setIsLoading] = useState(false)
-
 
   const navigateToClientPortal = () => {
     navigate('/')
@@ -78,25 +81,71 @@ const Login: React.FC = () => {
     return isValid
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault() 
+  const mockLogin = (email: string, password: string): Promise<{ success: boolean; message: string; user?: any }> => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
 
+        const user = MOCK_USERS.find(
+          u => u.email === email && u.password === password
+        )
+
+        if (user) {
+          resolve({
+            success: true,
+            message: 'Login successful',
+            user: { email: user.email, name: user.name }
+          })
+        } else {
+
+          const emailExists = MOCK_USERS.some(u => u.email === email)
+          
+          if (emailExists) {
+            resolve({
+              success: false,
+              message: 'Incorrect password'
+            })
+          } else {
+            resolve({
+              success: false,
+              message: 'User not found. Please check your email or sign up.'
+            })
+          }
+        }
+      }, 1500) 
+    })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
 
     if (!validateForm()) {
-      return 
+      return
     }
 
     setIsLoading(true)
+    setErrors({}) 
 
     try {
-      console.log('Logging in with:', formData)
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      console.log('Attempting login with:', formData)
       
-      navigate('/') 
+      const result = await mockLogin(formData.email, formData.password)
+      
+      if (result.success) {
+        console.log('Login successful:', result.user)
+        
+        localStorage.setItem('user', JSON.stringify(result.user))
+        localStorage.setItem('isAuthenticated', 'true')
+        
+        navigate('/')
+      } else {
+        setErrors({
+          general: result.message
+        })
+      }
 
     } catch (error) {
       setErrors({
-        general: error instanceof Error ? error.message : 'Login failed. Please try again.'
+        general: 'Something went wrong. Please try again.'
       })
     } finally {
       setIsLoading(false)
@@ -136,7 +185,7 @@ const Login: React.FC = () => {
           <p className='text-[20px] text-[#232832] font-normal mt-[24px] text-center md:text-left'>
             Please enter your email or log in with social accounts
           </p>
-
+          
           {errors.general && (
             <div className='mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded'>
               {errors.general}
@@ -156,7 +205,6 @@ const Login: React.FC = () => {
                 error={errors.email}     
               />
 
-      
               <Input 
                 name='password'
                 label='Password'
