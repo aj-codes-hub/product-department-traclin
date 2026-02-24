@@ -192,7 +192,7 @@ const Login: React.FC = () => {
             </div>
           )}
 
-          <div className='mt-[38px]'>
+          <div className='sm:mt-[38px] mt-[30px]'>
             <form onSubmit={handleSubmit}>
               <Input 
                 name='email' 
